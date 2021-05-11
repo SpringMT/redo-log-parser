@@ -14,14 +14,15 @@ https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_INNODB_REDO_LOG_FORMAT.ht
 https://github.com/mysql/mysql-server/blob/8.0/storage/innobase/arch/arch0log.cc
 
 #### ヘッダー
-print
+https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_INNODB_REDO_LOG_FORMAT.html#subsect_redo_log_format_header
+
 https://github.com/mysql/mysql-server/blob/8.0/storage/innobase/include/log0log.ic#L296-L311
 
 ```
 #define LOG_FILE_HDR_SIZE   (4 * OS_FILE_LOG_BLOCK_SIZE)
 ```
-
-最初の
+#### Log Block
+https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_INNODB_REDO_LOG_FORMAT.html#subsect_redo_log_format_blocks
 
 ## MySQLの便利関数
 ### mach_read_from_4
