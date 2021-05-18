@@ -3,8 +3,24 @@
 ## redo log
 * WAL (Write-ahead logging): データファイルを書き込む前、redoログに書き込むのを保証する
 
+MySQL 5.6 https://dev.mysql.com/doc/refman/5.6/en/innodb-redo-log.html
+MySQL 8.0 https://dev.mysql.com/doc/refman/8.0/en/innodb-redo-log.html
+
+http://nippondanji.blogspot.com/2009/01/innodb.html より
+```
+Log sequence numberは、ログバッファへの更新が行われたトータルのバイト数、Log flushed up toはWALへの書き込みが行われたバイト数、Last checkpoint atは最後にチェックポイントが行われたバイト数である。innodb_flush_log_at_trx_commit=1ならば、Log sequence numberとLog flushed up toは非常に近い値になる。
+```
+
+LSNの関係とかは https://github.com/kazeburo/cloudforecast/blob/master/lib/CloudForecast/Data/Innodb5extend.pm ここをみると参考になる。
+
 ### サイズ
 https://dev.mysql.com/doc/refman/8.0/ja/innodb-parameters.html#sysvar_innodb_log_file_size
+
+Log fileは512-byte block単位で書き込む。
+
+これはOSのブロックサイズです。Linuxシステムプログラミング p66
+
+参照 : https://lansen.hatenadiary.org/entry/20100724/1279973697
 
 
 ## spec
@@ -35,6 +51,12 @@ https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_INNODB_REDO_LOG_FORMAT.ht
 ### mach_read_from_4
 https://github.com/mysql/mysql-server/blob/8.0/storage/innobase/include/mach0data.ic#L146
 
+## 気になるところ
+redo logを緊急でflushしなければならないか?
+
+https://github.com/mysql/mysql-server/blob/3e90d07c3578e4da39dc1bce73559bbdf655c28c/storage/innobase/log/log0chkp.cc#L797-L816
+
+
 ## Rust周り
 ### バイナリ読み込みで参考にしたところ
 * https://github.com/image-rs/image/blob/master/src/io/reader.rs
@@ -47,4 +69,6 @@ https://github.com/mysql/mysql-server/blob/8.0/storage/innobase/include/mach0dat
 
 
 ## 参照
-https://github.com/azrle/redo-log-reader
+* https://github.com/azrle/redo-log-reader
+* [トランザクション技術とリカバリとInnoDBパラメータを調べた](https://tanishiking24.hatenablog.com/entry/innodb-durability)
+* https://www.percona.com/blog/2014/03/28/innodb-redo-log-archiving/
