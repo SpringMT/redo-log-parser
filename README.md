@@ -29,3 +29,5 @@ https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_INNODB_REDO_LOG_FORMAT.ht
 https://github.com/mysql/mysql-server/blob/8.0/storage/innobase/include/mach0data.ic#L146
 
 
+## 参照
+https://github.com/azrle/redo-log-reader
