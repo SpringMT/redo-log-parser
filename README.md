@@ -1,5 +1,12 @@
 # redo-log-parser
 
+## redo log
+* WAL (Write-ahead logging): データファイルを書き込む前、redoログに書き込むのを保証する
+
+### サイズ
+https://dev.mysql.com/doc/refman/8.0/ja/innodb-parameters.html#sysvar_innodb_log_file_size
+
+
 ## spec
 
 https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_INNODB_REDO_LOG.html
