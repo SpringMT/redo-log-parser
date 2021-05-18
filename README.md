@@ -33,6 +33,8 @@ https://github.com/mysql/mysql-server/blob/8.0/storage/innobase/include/mach0dat
 * https://github.com/image-rs/image/blob/master/src/io/reader.rs
 * https://qiita.com/fujitayy/items/12a80560a356607da637#%E3%83%90%E3%82%A4%E3%83%88%E5%88%97%E3%82%92%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%81%AB%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF%E3%81%AA%E3%81%8C%E3%82%89%E5%87%A6%E7%90%86%E3%81%97%E3%81%9F%E3%81%84
 
+* [Rust で [u8; n] から数値を復元する](https://o296.com/2020/08/09/rust-integer-from-raw-byte.html)
+
 ### その他
 * [Rust エラー処理2020](https://cha-shu00.hatenablog.com/entry/2020/12/08/060000)
 
